@@ -1,0 +1,14 @@
+- hosts: webservers
+  become: true
+  become_user: root
+  tasks:
+   - name: install docker
+     yum: name=docker state=present
+   - name: start docker
+     service: name=docker state=started
+   - name: pull docker image
+     docker_image:
+         name: devopsedu/webapp
+   - name: create container with image
+     command: docker run --name mycontainer -d -P 8282:80 devopsedu/webapp
+
