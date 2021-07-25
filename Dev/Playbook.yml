@@ -10,5 +10,5 @@
      docker_image:
          name: devopsedu/webapp
    - name: create container with image
-     command: docker run --name mycontainer -d -P 8282:80 devopsedu/webapp
+     command: docker run -itd -P devopsedu/webapp
 
